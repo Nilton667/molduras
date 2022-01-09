@@ -55,7 +55,7 @@ class userTabController extends GetxController
         if (resBody is int && resBody > 0) {
           SuccessAlertBox(
             context: context,
-            title: "O cliente foi registrado com sucesso!",
+            title: "O cliente foi registado com sucesso!",
             messageText: '',
             buttonText: 'Confirmar',
           );
@@ -145,6 +145,7 @@ class userTabController extends GetxController
     } catch (e) {
       showToast(e.toString(), context);
     }
+    isLoading = false;
     update();
   }
 

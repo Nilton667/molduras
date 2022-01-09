@@ -78,7 +78,7 @@ class Home extends StatelessWidget {
               : null,
           body: ResponsiveBuilder(
             builder: (context, sizingInformation) {
-              /*if (sizingInformation.isDesktop) {
+              if (sizingInformation.isDesktop) {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,9 +114,8 @@ class Home extends StatelessWidget {
                       ),
                     )
                   ],
-                  //Outras Tabs
                 );
-              }*/
+              }
               return Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,

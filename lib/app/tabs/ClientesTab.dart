@@ -134,171 +134,180 @@ class UserTab extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  color: Colors.grey.withOpacity(0.1),
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40, vertical: 15),
-                    child: Row(
-                      children: [
-                        OutlinedButton.icon(
-                          onPressed: () async {
-                            final doc = pw.Document();
-                            doc.addPage(
-                              pw.MultiPage(
-                                pageTheme: pdfLib.PageTheme(
-                                  pageFormat: PdfPageFormat.a4,
-                                ),
-                                header: (pw.Context context) {
-                                  return pw.Column(
-                                    children: [
-                                      pw.Row(
-                                        crossAxisAlignment:
-                                            pw.CrossAxisAlignment.start,
-                                        children: [
-                                          pw.Expanded(
-                                            child: pw.Column(
+                c.tabControllerUser.index == 0
+                    ? Container(
+                        color: Colors.grey.withOpacity(0.1),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 10),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 40, vertical: 15),
+                          child: Row(
+                            children: [
+                              OutlinedButton.icon(
+                                onPressed: () async {
+                                  final doc = pw.Document();
+                                  doc.addPage(
+                                    pw.MultiPage(
+                                      pageTheme: pdfLib.PageTheme(
+                                        pageFormat: PdfPageFormat.a4,
+                                      ),
+                                      header: (pw.Context context) {
+                                        return pw.Column(
+                                          children: [
+                                            pw.Row(
+                                              crossAxisAlignment:
+                                                  pw.CrossAxisAlignment.start,
                                               children: [
-                                                pw.Container(
-                                                  height: 50,
-                                                  alignment:
-                                                      pw.Alignment.centerLeft,
-                                                  child: pw.Text(
-                                                    'Lista de Clientes',
-                                                    style: pw.TextStyle(
-                                                      color: PdfColors.grey900,
-                                                      fontWeight:
-                                                          pw.FontWeight.bold,
-                                                      fontSize: 18,
-                                                    ),
+                                                pw.Expanded(
+                                                  child: pw.Column(
+                                                    children: [
+                                                      pw.Container(
+                                                        height: 50,
+                                                        alignment: pw.Alignment
+                                                            .centerLeft,
+                                                        child: pw.Text(
+                                                          'Lista de Clientes',
+                                                          style: pw.TextStyle(
+                                                            color: PdfColors
+                                                                .grey900,
+                                                            fontWeight: pw
+                                                                .FontWeight
+                                                                .bold,
+                                                            fontSize: 18,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      pw.Container(
+                                                        decoration:
+                                                            pw.BoxDecoration(
+                                                          borderRadius: const pw
+                                                              .BorderRadius.all(
+                                                            pw.Radius.circular(
+                                                                2),
+                                                          ),
+                                                          color:
+                                                              PdfColors.white,
+                                                        ),
+                                                        padding: const pw
+                                                            .EdgeInsets.only(
+                                                          top: 10,
+                                                          bottom: 10,
+                                                          right: 20,
+                                                        ),
+                                                        alignment: pw.Alignment
+                                                            .centerLeft,
+                                                        height: 50,
+                                                        child:
+                                                            pw.DefaultTextStyle(
+                                                          style: pw.TextStyle(
+                                                            color: PdfColors
+                                                                .blueGrey900,
+                                                            fontSize: 12,
+                                                          ),
+                                                          child: pw.Column(
+                                                            crossAxisAlignment: pw
+                                                                .CrossAxisAlignment
+                                                                .start,
+                                                            children: [
+                                                              pw.Row(
+                                                                children: [
+                                                                  pw.Text(
+                                                                      'Descricão:'),
+                                                                  pw.SizedBox(
+                                                                      width: 5),
+                                                                  pw.Text(
+                                                                    "Relatório de clientes Aphit Molduras",
+                                                                  ),
+                                                                ],
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
-                                                pw.Container(
-                                                  decoration: pw.BoxDecoration(
-                                                    borderRadius: const pw
-                                                        .BorderRadius.all(
-                                                      pw.Radius.circular(2),
-                                                    ),
-                                                    color: PdfColors.white,
-                                                  ),
-                                                  padding:
-                                                      const pw.EdgeInsets.only(
-                                                    top: 10,
-                                                    bottom: 10,
-                                                    right: 20,
-                                                  ),
-                                                  alignment:
-                                                      pw.Alignment.centerLeft,
-                                                  height: 50,
-                                                  child: pw.DefaultTextStyle(
-                                                    style: pw.TextStyle(
-                                                      color:
-                                                          PdfColors.blueGrey900,
-                                                      fontSize: 12,
-                                                    ),
-                                                    child: pw.Column(
-                                                      crossAxisAlignment: pw
-                                                          .CrossAxisAlignment
-                                                          .start,
-                                                      children: [
-                                                        pw.Row(
-                                                          children: [
-                                                            pw.Text(
-                                                                'Descricão:'),
-                                                            pw.SizedBox(
-                                                                width: 5),
-                                                            pw.Text(
-                                                              "Relatório de clientes Aphit Molduras",
-                                                            ),
-                                                          ],
-                                                        )
-                                                      ],
-                                                    ),
+                                                pw.Expanded(
+                                                  child: pw.Column(
+                                                    mainAxisSize:
+                                                        pw.MainAxisSize.min,
+                                                    children: [
+                                                      pw.Container(
+                                                        alignment: pw
+                                                            .Alignment.topRight,
+                                                        padding: const pw
+                                                            .EdgeInsets.only(
+                                                          bottom: 8,
+                                                          left: 30,
+                                                        ),
+                                                        height: 40,
+                                                        child: pw.PdfLogo(),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               ],
                                             ),
-                                          ),
-                                          pw.Expanded(
-                                            child: pw.Column(
-                                              mainAxisSize: pw.MainAxisSize.min,
-                                              children: [
-                                                pw.Container(
-                                                  alignment:
-                                                      pw.Alignment.topRight,
-                                                  padding:
-                                                      const pw.EdgeInsets.only(
-                                                    bottom: 8,
-                                                    left: 30,
-                                                  ),
-                                                  height: 40,
-                                                  child: pw.PdfLogo(),
-                                                ),
-                                              ],
+                                            if (context.pageNumber > 1)
+                                              pw.SizedBox(height: 20)
+                                          ],
+                                        );
+                                      },
+                                      footer: (pw.Context context) {
+                                        return pw.Row(
+                                          mainAxisAlignment:
+                                              pw.MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              pw.CrossAxisAlignment.end,
+                                          children: [
+                                            pw.Container(
+                                              height: 20,
+                                              width: 100,
+                                              child: pw.BarcodeWidget(
+                                                barcode: pw.Barcode.pdf417(),
+                                                data: 'Invoice# 11',
+                                                drawText: false,
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                      if (context.pageNumber > 1)
-                                        pw.SizedBox(height: 20)
-                                    ],
+                                            pw.Text(
+                                              'Page ${context.pageNumber}/${context.pagesCount}',
+                                              style: const pw.TextStyle(
+                                                fontSize: 12,
+                                                color: PdfColors.white,
+                                              ),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                      build: (ctx) => [],
+                                    ),
                                   );
-                                },
-                                footer: (pw.Context context) {
-                                  return pw.Row(
-                                    mainAxisAlignment:
-                                        pw.MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        pw.CrossAxisAlignment.end,
-                                    children: [
-                                      pw.Container(
-                                        height: 20,
-                                        width: 100,
-                                        child: pw.BarcodeWidget(
-                                          barcode: pw.Barcode.pdf417(),
-                                          data: 'Invoice# 11',
-                                          drawText: false,
-                                        ),
-                                      ),
-                                      pw.Text(
-                                        'Page ${context.pageNumber}/${context.pagesCount}',
-                                        style: const pw.TextStyle(
-                                          fontSize: 12,
-                                          color: PdfColors.white,
-                                        ),
-                                      ),
-                                    ],
-                                  );
-                                },
-                                build: (ctx) => [],
-                              ),
-                            );
 
-                            await Printing.layoutPdf(
-                              onLayout: (PdfPageFormat format) async =>
-                                  doc.save(),
-                            ); // Page
-                          },
-                          icon: Icon(
-                            Icons.print,
-                            color: Colors.green,
-                          ),
-                          label: Text(
-                            "Imprimir Lista de Clientes",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w300,
-                            ),
+                                  await Printing.layoutPdf(
+                                    onLayout: (PdfPageFormat format) async =>
+                                        doc.save(),
+                                  ); // Page
+                                },
+                                icon: Icon(
+                                  Icons.print,
+                                  color: Colors.green,
+                                ),
+                                label: Text(
+                                  "Imprimir Lista de Clientes",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                            ],
                           ),
                         ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                      )
+                    : Center(),
                 Expanded(
                   child: TabBarView(
                     controller: c.tabControllerUser,
@@ -618,7 +627,7 @@ class MyDataTableSource extends DataTableSource {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text("Deseja Excluir o Cliente?"),
+                            Text("Deseja excluir o cliente?"),
                             SizedBox(height: 12),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -953,7 +962,7 @@ class MyDataTableSource extends DataTableSource {
                                       );
                                     },
                                     child: Text(
-                                      "Actualizar Registro",
+                                      "Actualizar Registo",
                                       style: TextStyle(color: Colors.white),
                                     ),
                                   ),

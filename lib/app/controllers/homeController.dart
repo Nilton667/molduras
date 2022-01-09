@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:molduras/app/util/global.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class HomeController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -10,7 +11,11 @@ class HomeController extends GetxController
   late TabController tabController;
   bool isMenuVisible = true;
 
+  late TooltipBehavior tooltipBehavior;
+  bool isLoading = false;
+
   void init() async {
+    tooltipBehavior = TooltipBehavior();
     tabController = TabController(vsync: this, length: 5, initialIndex: 0);
 
     var box = await Hive.openBox('aphit_user');

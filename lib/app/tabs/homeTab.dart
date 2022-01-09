@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:molduras/app/controllers/homeController.dart';
 import 'package:molduras/app/tabs/ClientesTab.dart';
 import 'package:molduras/app/tabs/encomendaTab.dart';
@@ -9,32 +10,14 @@ import 'package:molduras/app/widgets/dashboardCard.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class HomeTab extends StatefulWidget {
+class HomeTab extends StatelessWidget {
   HomeTab({Key? key, required this.sidemenuTabController}) : super(key: key);
   final TabController sidemenuTabController;
-  @override
-  _HomeTabState createState() => _HomeTabState();
-}
-
-class _HomeTabState extends State<HomeTab> {
-  late TooltipBehavior _tooltipBehavior;
-  bool _isLoading = false;
-  @override
-  void initState() {
-    _tooltipBehavior = TooltipBehavior();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
+  final c = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
-    //context.read<EncomendaController>().encomendas.length;
     return ModalProgressHUD(
-      inAsyncCall: _isLoading,
+      inAsyncCall: c.isLoading,
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -72,9 +55,7 @@ class _HomeTabState extends State<HomeTab> {
                         label: "CLIENTES",
                         value: 1,
                         onTap: () {
-                          setState(() {
-                            widget.sidemenuTabController.animateTo(1);
-                          });
+                          sidemenuTabController.animateTo(1);
                         },
                       ),
                       Dashboardcard(
@@ -83,9 +64,7 @@ class _HomeTabState extends State<HomeTab> {
                         label: "PRODUTOS",
                         value: 1,
                         onTap: () {
-                          setState(() {
-                            widget.sidemenuTabController.animateTo(2);
-                          });
+                          sidemenuTabController.animateTo(2);
                         },
                       ),
                       Dashboardcard(
@@ -94,9 +73,7 @@ class _HomeTabState extends State<HomeTab> {
                         label: "MATÉRIAS PRIMAS",
                         value: 1,
                         onTap: () {
-                          setState(() {
-                            widget.sidemenuTabController.animateTo(3);
-                          });
+                          sidemenuTabController.animateTo(3);
                         },
                       ),
                       Dashboardcard(
@@ -127,11 +104,7 @@ class _HomeTabState extends State<HomeTab> {
                                 ),
                               );
                             } else {
-                              setState(
-                                () {
-                                  widget.sidemenuTabController.animateTo(1);
-                                },
-                              );
+                              sidemenuTabController.animateTo(1);
                             }
                           },
                         ),
@@ -151,11 +124,7 @@ class _HomeTabState extends State<HomeTab> {
                                 ),
                               );
                             } else {
-                              setState(
-                                () {
-                                  widget.sidemenuTabController.animateTo(2);
-                                },
-                              );
+                              sidemenuTabController.animateTo(2);
                             }
                           },
                         ),
@@ -175,11 +144,7 @@ class _HomeTabState extends State<HomeTab> {
                                 ),
                               );
                             } else {
-                              setState(
-                                () {
-                                  widget.sidemenuTabController.animateTo(3);
-                                },
-                              );
+                              sidemenuTabController.animateTo(3);
                             }
                           },
                         ),
@@ -199,11 +164,7 @@ class _HomeTabState extends State<HomeTab> {
                                 ),
                               );
                             } else {
-                              setState(
-                                () {
-                                  widget.sidemenuTabController.animateTo(4);
-                                },
-                              );
+                              sidemenuTabController.animateTo(4);
                             }
                           },
                         ),
@@ -224,7 +185,7 @@ class _HomeTabState extends State<HomeTab> {
                       Expanded(
                         child: Container(
                           child: SfCartesianChart(
-                            tooltipBehavior: _tooltipBehavior,
+                            tooltipBehavior: c.tooltipBehavior,
                             primaryXAxis: CategoryAxis(),
                             series: <ChartSeries<SalesData, String>>[
                               ColumnSeries<SalesData, String>(
@@ -279,7 +240,7 @@ class _HomeTabState extends State<HomeTab> {
                       Expanded(
                         child: Container(
                           child: SfCartesianChart(
-                            tooltipBehavior: _tooltipBehavior,
+                            tooltipBehavior: c.tooltipBehavior,
                             primaryXAxis: CategoryAxis(),
                             series: <LineSeries<SalesData, String>>[
                               LineSeries<SalesData, String>(
